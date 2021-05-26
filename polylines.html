@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Polylines</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwFCfAgPXqiCrYUgLfyxOXGrgPNe7tTcQ&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script>
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 13,
+    center: { lat: 32.836295074885065, lng:74.06449616963981 },
+    mapTypeId: "terrain",
+  });
+  
+  const coordinates = [
+  
+    { lat: 32.850609134165325, lng: 74.07106221701896 },
+    { lat: 32.83481666528314,  lng: 74.05999005884195 },
+    { lat: 32.82502608791798, lng: 74.06054795799305 },
+    { lat: 32.809986524191224, lng: 74.05878842911457 },
+    { lat: 32.77598484729205, lng:74.06672776851993 },
+    { lat: 32.74942383685435, lng:74.07050431913686 },
+  ];
+  const path = new google.maps.Polyline({
+    path: coordinates,
+    geodesic: true,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+  });
+  path.setMap(map);
+}
+    </script>
+  </body>
+</html>
